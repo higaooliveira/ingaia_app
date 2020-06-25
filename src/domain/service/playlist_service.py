@@ -1,8 +1,8 @@
-from domain.service.http_client import HttpClient
-from domain.model.city import City
-from domain.service.rock_service import RockService
-from domain.service.pop_service import PopService
-from domain.service.classic_service import ClassicService
+from src.domain.service.http_client import HttpClient
+from src.domain.model.city import City
+from src.domain.service.rock_service import RockService
+from src.domain.service.pop_service import PopService
+from src.domain.service.classic_service import ClassicService
 
 
 class PlaylistService:

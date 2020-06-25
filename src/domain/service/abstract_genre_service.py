@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from domain.model.city import City
+from src.domain.model.city import City
 
 
 class AbstractGenreService(ABC):

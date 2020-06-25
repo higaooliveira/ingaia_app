@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from resources.router import api_router
+from src.resources.router import api_router
 
 
 def get_app() -> FastAPI:

@@ -20,7 +20,7 @@ services:
 
   ingaia:
     build: .
-    command: cd src; uvicorn src/main:app --reload
+    command: uvicorn main:app --reload
     volumes:
       - .:/application
     ports:

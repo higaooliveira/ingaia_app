@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from requests import HTTPError
-from domain.service.http_client import HttpClient
-from domain.service.playlist_service import PlaylistService
+from src.domain.service.http_client import HttpClient
+from src.domain.service.playlist_service import PlaylistService
 
 
 router = APIRouter()
