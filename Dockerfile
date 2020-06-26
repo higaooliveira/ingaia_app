@@ -1,13 +1,6 @@
-FROM python:3.7
-ENV PYTHONUNBUFFERED 1
-RUN mkdir /appication
-WORKDIR /appication
-RUN apt-get update && apt-get install -y \
-		gcc \
-		gettext \
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 
-	--no-install-recommends && rm -rf /var/lib/apt/lists/*
+COPY ./app /app
 
-COPY ["./requirements.txt", "/application/"]
-RUN pip install --upgrade pip && pip install -r /application/requirements.txt
-ADD . /appication/
+COPY ["./requirements.txt", "/app/"]
+RUN pip install --upgrade pip && pip install -r /app/requirements.txt

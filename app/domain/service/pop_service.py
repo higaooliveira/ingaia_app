@@ -1,5 +1,5 @@
-from src.domain.service.abstract_genre_service import AbstractGenreService
-from src.domain.model.city import City
+from domain.service.abstract_genre_service import AbstractGenreService
+from domain.model.city import City
 
 
 class PopService(AbstractGenreService):
