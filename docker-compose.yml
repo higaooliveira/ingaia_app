@@ -1,32 +1,15 @@
 version: "3"
 
 services:
-  database:
-    image: mysql:5.7
-    ports:
-      - "3306:3306"
-    expose:
-      - 3306
-    environment:
-      - MYSQL_DATABASE=ingaia
-      - MYSQL_USER=ingaia
-      - MYSQL_PASSWORD=ingaia
-      - MYSQL_ROOT_PASSWORD=root
-
-  redis:
-    image: redis
-    ports:
-      - "6379:6379"
 
   ingaia:
     build: .
-    command: uvicorn main:app --reload
     volumes:
       - ./app:/app
     ports:
-      - "5000:8000"
-    depends_on:
-      - database
-      - redis
-    links:
-      - database
+      - "80:80"
+    environment:
+      - API_WEATHER_KEY=47ab211f0f5a3f89151850edee950e3f
+      - API_WEATHER_BASE_URL=http://api.openweathermap.org/data/2.5/
+      - SPOTIPY_CLIENT_ID=2bb720af43e445b4b114e8869a7a4c26
+      - SPOTIPY_CLIENT_SECRET=a8638047e2b44e74a57b025572947975
