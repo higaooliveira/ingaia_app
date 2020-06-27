@@ -1,6 +1,8 @@
 from json import loads
+from typing import List
 
 from fastapi import APIRouter, HTTPException
+
 from requests import HTTPError
 
 from domain.model.city import City
@@ -16,18 +18,20 @@ class MusicalWeatherController:
     @router.get("/musical_weather/", response_model=City, name="Returns a list of songs suggested by weather")
     def get_playlist(city: str = ""):
         try:
-            musical_weather = MusicalWeatherService(HttpClient())
-
-            return musical_weather.get_playlist(city)
+            musical_weather_service = MusicalWeatherService(HttpClient())
+            return musical_weather_service.get_playlist(city)
 
         except HTTPError as e:
-            raise HTTPException(
-                status_code=e.response.status_code,
-                detail=loads(e.response.text)['message'],
-            )
+            raise HTTPException(status_code=e.response.status_code, detail=loads(e.response.text)['message'])
 
         except Exception:
-            raise HTTPException(
-                status_code=500,
-                detail="An error occurred while trying to process your request",
-            )
+            raise HTTPException(status_code=500, detail="An error occurred while trying to process your request")
+
+    @router.get("/searched_cities/", response_model=List[City])
+    def get_all_searched_cities():
+        try:
+            musical_weather_service = MusicalWeatherService(HttpClient())
+            return musical_weather_service.get_all_searched_cities()
+
+        except Exception:
+            raise HTTPException(status_code=500, detail="An error occurred while trying to process your request")
