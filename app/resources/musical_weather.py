@@ -24,8 +24,7 @@ class MusicalWeatherController:
         except HTTPError as e:
             raise HTTPException(status_code=e.response.status_code, detail=loads(e.response.text)['message'])
 
-        except Exception as e:
-            print(e)
+        except Exception:
             raise HTTPException(status_code=500, detail="An error occurred while trying to process your request")
 
     @router.get("/searched_cities/", response_model=List[City])
@@ -34,6 +33,5 @@ class MusicalWeatherController:
             musical_weather_service = MusicalWeatherService(HttpClient())
             return musical_weather_service.get_all_searched_cities()
 
-        except Exception as e:
-            print(e)
+        except Exception:
             raise HTTPException(status_code=500, detail="An error occurred while trying to process your request")
