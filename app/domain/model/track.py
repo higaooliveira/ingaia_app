@@ -20,3 +20,4 @@ class TrackInDb(Base):
 class Track(BaseModel):
     name: str
     artist: str
+    genre: str

@@ -13,6 +13,8 @@ class PopService(AbstractGenreService):
         if city.temperature > 25:
             track_response = self._spotify_service.search(q='genre:pop', type='track', limit=10)
 
-            return self._normalize_track_list(track_response)
-
-        raise HTTPException(status_code=501, detail="An error occurred while trying to process your request")
+            return self._normalize_track_list(track_response, 'pop')
+        elif self._next_genre_service:
+            return self._next_genre_service.get_genre_playlist(city)
+        else:
+            raise HTTPException(status_code=501, detail="An error occurred while trying to process your request")

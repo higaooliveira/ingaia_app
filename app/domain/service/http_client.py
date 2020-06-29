@@ -22,9 +22,6 @@ class HttpClient:
         response.raise_for_status()
 
     def get(self, endpoint, **kwargs):
-        # For more information about all the parameters available, check ou at:
-        # https://requests.readthedocs.io/en/master/api/#requests.request
-
         url = f'{self.base_url}{endpoint}'
         response = self.session.get(url, **kwargs)
 
