@@ -29,9 +29,5 @@ class MusicalWeatherController:
 
     @router.get("/searched_cities/", response_model=List[City])
     def get_all_searched_cities():
-        try:
-            musical_weather_service = MusicalWeatherService(HttpClient())
-            return musical_weather_service.get_all_searched_cities()
-
-        except Exception:
-            raise HTTPException(status_code=500, detail="An error occurred while trying to process your request")
+        musical_weather_service = MusicalWeatherService(HttpClient())
+        return musical_weather_service.get_all_searched_cities()
