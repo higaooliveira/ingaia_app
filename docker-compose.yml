@@ -9,7 +9,12 @@ services:
     ports:
       - "80:80"
     environment:
-      - API_WEATHER_KEY=47ab211f0f5a3f89151850edee950e3f
+      - API_WEATHER_KEY=${YOUR_OPENWEATHER_API_KEY_HERE}
       - API_WEATHER_BASE_URL=http://api.openweathermap.org/data/2.5/
-      - SPOTIPY_CLIENT_ID=2bb720af43e445b4b114e8869a7a4c26
-      - SPOTIPY_CLIENT_SECRET=a8638047e2b44e74a57b025572947975
+      - SPOTIPY_CLIENT_ID=${YOUR_SPOTIFY_CLIENT_ID_HERE}
+      - SPOTIPY_CLIENT_SECRET=${YOUR_SPOTIFY_CLIENT_SECRET_HERE}
+      - db_name=${YOUR_DB_NAME_HERE}
+      - host=${YOUR_DB_HOST_HERE}
+      - user=${YOUR_DB_USER_HERE}
+      - pass=${YOUR_DB_PASSWD_HERE}
+      - port=${YOUR_DB_PORT_HERE}
