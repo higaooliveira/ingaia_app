@@ -3,5 +3,5 @@ uvicorn
 requests
 spotipy
 sqlalchemy
-pymysql
+psycopg2
 pytest
