@@ -9,7 +9,7 @@ SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{}:{}@{}/{}?reconnect=true".format(en
                                                                               environ['host'],
                                                                               environ['db_name'])
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_recycle=10)
+engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_recycle=28800 - 1, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
